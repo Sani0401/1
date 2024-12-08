@@ -11,6 +11,7 @@ class UserCreateRequest(BaseModel):
 # POST /users - Create a new user
 @router.post("/users")
 def create_user(user: UserCreateRequest):
+    print(user)
     response = supabase.table("users").insert({"name": user.name, "email": user.email}).execute()
     
     return {"message": "User created successfully", "user": response}

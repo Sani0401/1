@@ -1,10 +1,10 @@
-from fastapi import FastAPI
+from fastapi import FastAPI,APIRouter
 from apscheduler.schedulers.background import BackgroundScheduler
 import datetime
 from config.supabase import supabase
 
 app = FastAPI()
-
+router = APIRouter()
 scheduler = BackgroundScheduler()
 
 def update_search_insights_cron():
